@@ -1,12 +1,15 @@
+# Практическая №6
+
+
 # Ввод количества точек
-n = int(input("Сколько точек у вас есть? (n+1 точек): "))
-n = n - 1  # Переходим к n (степень полинома)
+n = int(input("Введите кол-во точек - "))
+n = n - 1  
 
 # Списки для хранения точек
 x_points = []
 y_points = []
 
-print("")
+
 print("Вводите точки (x, y):")
 for i in range(n + 1):
     print(f"Точка {i + 1}:")
@@ -21,10 +24,10 @@ for i in range(n + 1):
     print(f"({x_points[i]}, {y_points[i]})")
 
 print("")
-print("Хотите найти значение в какой-то точке?")
-print("1 - Да, найти значение P(x)")
-print("2 - Нет, показать только полином")
-choice = input("Ваш выбор (1 или 2): ")
+print("Найти значение?")
+print("1 - Да")
+print("2 - Нет")
+choice = input("1 - 2 - ")
 
 
 # Функция для вычисления полинома Лагранжа в точке xx
@@ -41,12 +44,12 @@ def lagrange(xx):
     return result
 
 
-# Показать полином
+# Полином
 print("")
 print("ПОЛИНОМ ЛАГРАНЖА:")
 print("P(x) = ", end="")
 for i in range(n + 1):
-    # Выводим yi * Li(x)
+    # Выводи
     print(f"{y_points[i]} * L{i}(x)", end="")
     if i < n:
         print(" + ", end="")
@@ -72,14 +75,15 @@ for i in range(n + 1):
 if choice == "1":
     print("")
     # Найти значение в точке
-    x_find = float(input("Введите x, для которого найти P(x): "))
+    x_find = float(input("Введите x - "))
     y_result = lagrange(x_find)
     print("")
     print(f"P({x_find}) = {y_result}")
 
     # Проверить точность в узлах
     print("")
-    print("Проверка в узлах (должно совпадать с y_i):")
+    print("Проверка в узлах -")
     for i in range(n + 1):
         check = lagrange(x_points[i])
-        print(f"P({x_points[i]}) = {check} (должно быть {y_points[i]})")
+
+        print(f"P({x_points[i]}) = {check} (итог {y_points[i]})")
